@@ -55,7 +55,7 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-ROOT_URLCONF = 'taskmanager.urls'
+ROOT_URLCONF = 'taskmanager.taskmanager.urls'
 
 TEMPLATES = [
     {
