@@ -1,0 +1,233 @@
+/* ═══════════════════════════════════════════════════════════
+   PROJECTS — Grid Layout & Cards
+   ═══════════════════════════════════════════════════════════ */
+
+.projects-page {
+  animation: fadeIn var(--duration-normal) var(--ease-out);
+}
+
+/* ── Projects Grid ────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all var(--duration-normal) var(--ease-out);
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-card.clickable {
+    cursor: pointer;
+}
+
+/* ── Card Header ─────────────────────────────────────── */
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.project-type-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--bg-hover);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 20px;
+}
+
+.project-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity var(--duration-fast);
+}
+
+.project-card:hover .project-actions {
+  opacity: 1;
+}
+
+/* ── Card Body ───────────────────────────────────────── */
+.project-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.project-name {
+  font-size: 1.21rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.project-owner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 0.857rem;
+}
+
+/* ── Card Footer / Progress ──────────────────────────── */
+.project-progress-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-percentage {
+  font-size: 0.857rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.task-counter {
+  font-size: 0.786rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.progress-track {
+  height: 6px;
+  background: var(--bg-hover);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.8s var(--ease-out);
+}
+
+/* ── Project Detail Modal ────────────────────────────── */
+.project-detail-modal {
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-tasks-list {
+    flex: 1;
+    overflow-y: auto;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 4px;
+}
+
+.project-tasks-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.project-tasks-list::-webkit-scrollbar-thumb {
+    background: var(--border-subtle);
+    border-radius: 99px;
+}
+
+.detail-task-item {
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all var(--duration-fast);
+}
+
+.detail-task-item:hover {
+    background: var(--bg-hover);
+    transform: translateX(4px);
+}
+
+.task-status-col {
+    flex-shrink: 0;
+}
+
+.status-icon {
+    font-size: 20px;
+}
+
+.status-icon.done { color: var(--success); }
+.status-icon.in-progress { color: var(--info); }
+.status-icon.pending { color: var(--warning); }
+
+.task-info-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.detail-task-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.928rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.detail-task-assignee {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.786rem;
+    color: var(--text-muted);
+}
+
+.detail-task-assignee strong {
+    color: var(--text-secondary);
+}
+
+.task-badge-col {
+    flex-shrink: 0;
+}
+
+.empty-tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: var(--text-dim);
+    gap: 12px;
+    text-align: center;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 640px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
