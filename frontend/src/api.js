@@ -1,4 +1,4 @@
-const API = "http://127.0.0.1:8000";
+const API = "https://task-manager-production-c9ad.up.railway.app";
 
 const authHeaders = () => ({
   "Content-Type": "application/json",
