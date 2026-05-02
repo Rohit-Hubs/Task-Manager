@@ -7,7 +7,7 @@ const authHeaders = () => ({
 
 // ─── AUTH ───────────────────────────────────────────────
 export const signup = async (data) => {
-  const res = await fetch(API + "/signup/", {
+  const res = await fetch(API + "/api/signup/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -16,7 +16,7 @@ export const signup = async (data) => {
 };
 
 export const login = async (data) => {
-  const res = await fetch(API + "/login/", {
+  const res = await fetch(API + "/api/login/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -25,7 +25,7 @@ export const login = async (data) => {
 };
 
 export const getMe = async () => {
-  const res = await fetch(API + "/me/", {
+  const res = await fetch(API + "/api/me/", {
     headers: authHeaders(),
   });
   return res.json();
@@ -33,7 +33,7 @@ export const getMe = async () => {
 
 // ─── PROJECTS ───────────────────────────────────────────
 export const createProject = async (data) => {
-  const res = await fetch(API + "/projects/", {
+  const res = await fetch(API + "/api/projects/", {
     method: "POST",
     headers: authHeaders(),
     body: JSON.stringify(data),
@@ -42,21 +42,21 @@ export const createProject = async (data) => {
 };
 
 export const getProjects = async () => {
-  const res = await fetch(API + "/projects/list/", {
+  const res = await fetch(API + "/api/projects/list/", {
     headers: authHeaders(),
   });
   return res.json();
 };
 
 export const getProjectDetail = async (id) => {
-  const res = await fetch(API + `/projects/${id}/`, {
+  const res = await fetch(API + `/api/projects/${id}/`, {
     headers: authHeaders(),
   });
   return res.json();
 };
 
 export const updateProject = async (id, data) => {
-  const res = await fetch(API + `/projects/${id}/update/`, {
+  const res = await fetch(API + `/api/projects/${id}/update/`, {
     method: "PATCH",
     headers: authHeaders(),
     body: JSON.stringify(data),
@@ -65,7 +65,7 @@ export const updateProject = async (id, data) => {
 };
 
 export const deleteProject = async (id) => {
-  const res = await fetch(API + `/projects/${id}/delete/`, {
+  const res = await fetch(API + `/api/projects/${id}/delete/`, {
     method: "DELETE",
     headers: authHeaders(),
   });
@@ -74,7 +74,7 @@ export const deleteProject = async (id) => {
 
 // ─── TASKS ──────────────────────────────────────────────
 export const createTask = async (data) => {
-  const res = await fetch(API + "/tasks/create/", {
+  const res = await fetch(API + "/api/tasks/create/", {
     method: "POST",
     headers: authHeaders(),
     body: JSON.stringify(data),
@@ -83,14 +83,14 @@ export const createTask = async (data) => {
 };
 
 export const getTasks = async () => {
-  const res = await fetch(API + "/tasks/", {
+  const res = await fetch(API + "/api/tasks/", {
     headers: authHeaders(),
   });
   return res.json();
 };
 
 export const updateTask = async (id, data) => {
-  const res = await fetch(API + `/tasks/${id}/update/`, {
+  const res = await fetch(API + `/api/tasks/${id}/update/`, {
     method: "PATCH",
     headers: authHeaders(),
     body: JSON.stringify(data),
@@ -99,7 +99,7 @@ export const updateTask = async (id, data) => {
 };
 
 export const deleteTask = async (id) => {
-  const res = await fetch(API + `/tasks/${id}/delete/`, {
+  const res = await fetch(API + `/api/tasks/${id}/delete/`, {
     method: "DELETE",
     headers: authHeaders(),
   });
@@ -108,7 +108,7 @@ export const deleteTask = async (id) => {
 
 // ─── USERS ──────────────────────────────────────────────
 export const getUsers = async () => {
-  const res = await fetch(API + "/users/", {
+  const res = await fetch(API + "/api/users/", {
     headers: authHeaders(),
   });
   return res.json();
@@ -116,8 +116,8 @@ export const getUsers = async () => {
 
 // ─── DASHBOARD ──────────────────────────────────────────
 export const getDashboardStats = async () => {
-  const res = await fetch(API + "/dashboard/", {
+  const res = await fetch(API + "/api/dashboard/", {
     headers: authHeaders(),
   });
   return res.json();
-};
+};
